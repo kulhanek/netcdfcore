@@ -1,0 +1,2 @@
+# netcdfcore
+copy of netcdf 4.0.1 adapted for cmake, only core libraries
