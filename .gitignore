@@ -7,3 +7,4 @@ Makefile
 /bin/
 /lib/
 /include/
+/src/lib/cnetcdf/config-gen.h
