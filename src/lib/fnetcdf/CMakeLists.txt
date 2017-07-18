@@ -35,13 +35,16 @@ ENDIF(LIBS_STATIC)
 # create shared library --------------------------------------------------------
 IF(LIBS_SHARED)
     ADD_LIBRARY(fnetcdf_shared SHARED ${FNETCDF_SRC})
-    TARGET_LINK_LIBRARIES(fnetcdf_shared
-                    cnetcdf_shared
-                    )
     SET_TARGET_PROPERTIES(fnetcdf_shared PROPERTIES
                             OUTPUT_NAME fnetcdf
                             CLEAN_DIRECT_OUTPUT 1
-                            VERSION ${NETCDF_VERSION})
+                            VERSION ${NETCDF_VERSION})    
+    
+    ADD_DEPENDENCIES(fnetcdf_shared cnetcdf_shared)
+    TARGET_LINK_LIBRARIES(fnetcdf_shared
+                    cnetcdf_shared
+                    )
+    
     INSTALL(TARGETS fnetcdf_shared
             DESTINATION lib)
 ENDIF(LIBS_SHARED)
